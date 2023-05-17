@@ -76,43 +76,34 @@ const imagesList = [
 class Gallery extends Component {
   state = {activeImgId: imagesList[0].id}
 
-  getFilteredImage = () => {
-    const {activeImgId} = this.state
-    const filteredImg = imagesList.filter(
-      eachImage => eachImage.id === activeImgId
-    )
-    return filteredImg
-  }
-
   updateStateImgId = id => {
     this.setState({activeImgId: id})
   }
 
   render() {
     const {activeImgId} = this.state
-    const filteredImg = this.getFilteredImage()
+    const {imageUrl, imageAltText} = imagesList[activeImgId]
 
     return (
       <div className="bg-container">
-        <div className="img-container">
-          <img
-            src={filteredImg.imageUrl}
-            className="main-image"
-            alt={filteredImg.imageAltText}
-          />
-        </div>
-        <h1 className="title">Nature Photography</h1>
-        <p className="desc">Nature Photography by Rahul</p>
+        <div className="main-container">
+          <div className="img-container">
+            <img src={imageUrl} className="main-image" alt={imageAltText} />
+          </div>
+          <h1 className="title">Nature Photography</h1>
+          <p className="desc">Nature Photography by Rahul</p>
 
-        <ul className="thumbnails-container">
-          ({imagesList.map(eachImageThumbnail =>
-            <ThumbnailItem
-              key={eachImageThumbnail.id}
-              eachThumbnailDetails={eachImageThumbnail}
-              updateStateImgId={this.updateStateImgId}
-              isActive={ activeImgId === eachImageThumbnail.id }/>
-           )})
-        </ul>
+          <ul className="thumbnails-container">
+            {imagesList.map(eachImageThumbnail => (
+              <ThumbnailItem
+                key={eachImageThumbnail.id}
+                eachThumbnailDetails={eachImageThumbnail}
+                updateStateImgId={this.updateStateImgId}
+                isActive={activeImgId === eachImageThumbnail.id}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }

@@ -1,1 +1,41 @@
-/* Write your code here. */
+.bg-container {
+  display: flex;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 2px 0px lightgray;
+  width: 510px;
+}
+.img-container {
+  height: 300px;
+  width: 600px;
+  border: none;
+  margin-bottom: 16px;
+}
+.thumbnails-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.title {
+  font-size: 20px;
+  font-family: 'Roboto';
+  color: #1e293b;
+  text-align: left;
+}
+.desc {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #64748b;
+}
+.main-image {
+  height: 300px;
+  width: 475px;
+  border-radius: 10px;
+}
